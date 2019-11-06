@@ -24,11 +24,13 @@ class Customer
   end
 
   def waiters #>> I tried using a second select method, but won't work.  Not sure why not?
-    final_array = []
-    Meal.all.select{|meal_instance| meal_instance.customer.name == self.name}.each do |meal|
-      final_array << meal.waiter
-    end
-    final_array
+    meals.map{|meal| meal.waiter}
+
+    #final_array = []
+    #Meal.all.select{|meal_instance| meal_instance.customer.name == self.name}.each do |meal|
+    #  final_array << meal.waiter
+    #end
+    #final_array
   end
 
 end
