@@ -20,7 +20,7 @@ class Customer
   end
 
   def meals
-    Meal.all.select{|meal_instance| meal_instance.customer.name == self.name}
+    Meal.all.select{|meal_instance| meal_instance.customer == self}
   end
 
   def waiters #>> I tried using a second select method, but won't work.  Not sure why not?
